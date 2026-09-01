@@ -1,0 +1,21 @@
+<h1>Editar Tema</h1>
+
+<div class="form-container">
+    <form action="/temas/<%= tema.id %>?_method=PUT" method="POST" id="editarTemaForm">
+        <div class="form-group">
+            <label for="titulo">Título del Tema</label>
+            <input type="text" id="titulo" name="titulo" required 
+                   value="<%= tema.titulo %>">
+        </div>
+        
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" required><%= tema.descripcion %></textarea>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Actualizar Tema</button>
+            <a href="/temas/<%= tema.id %>" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>

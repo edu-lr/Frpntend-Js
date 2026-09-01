@@ -1,0 +1,39 @@
+<div class="header-actions">
+    <h1>Temas de Aprendizaje</h1>
+    <a href="/temas/crear" class="btn btn-primary">➕ Crear Nuevo Tema</a>
+</div>
+
+<p class="subtitle">Descubre y vota por los mejores temas</p>
+
+<div class="temas-grid">
+    <% if (temas.length === 0) { %>
+        <div class="empty-state">
+            <p>No hay temas todavía. ¡Sé el primero en crear uno!</p>
+            <a href="/temas/crear" class="btn btn-primary">Crear Tema</a>
+        </div>
+    <% } else { %>
+        <% temas.forEach(tema => { %>
+            <div class="tema-card" data-id="<%= tema.id %>">
+                <h3><a href="/temas/<%= tema.id %>"><%= tema.titulo %></a></h3>
+                <p class="descripcion"><%= tema.descripcion %></p>
+                
+                <div class="vote-container">
+                    <button class="btn-vote" onclick="votarTema(<%= tema.id %>, this)">
+                        👍 Votar
+                    </button>
+                    <span class="vote-count" id="votos-<%= tema.id %>">
+                        <%= tema.votos %>
+                    </span>
+                    <span class="vote-label">votos</span>
+                </div>
+                
+                <div class="tema-actions">
+                    <a href="/temas/<%= tema.id %>/editar" class="btn btn-secondary btn-sm">Editar</a>
+                    <form action="/temas/<%= tema.id %>?_method=DELETE" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de eliminar este tema?')">
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+</div>

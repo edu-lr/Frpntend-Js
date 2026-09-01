@@ -1,0 +1,22 @@
+<h1>Crear Nuevo Tema</h1>
+
+<div class="form-container">
+    <form action="/temas" method="POST" id="crearTemaForm">
+        <div class="form-group">
+            <label for="titulo">Título del Tema</label>
+            <input type="text" id="titulo" name="titulo" required 
+                   placeholder="Ej: Cómo programar como un ninja">
+        </div>
+        
+        <div class="form-group">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" required 
+                      placeholder="Describe qué se aprenderá en este tema..."></textarea>
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Crear Tema</button>
+            <a href="/temas" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
