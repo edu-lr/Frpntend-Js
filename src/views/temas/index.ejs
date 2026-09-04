@@ -18,9 +18,8 @@
                 <p class="descripcion"><%= tema.descripcion %></p>
                 
                 <div class="vote-container">
-                    <button class="btn-vote" onclick="votarTema(<%= tema.id %>, this)">
-                        👍 Votar
-                    </button>
+                    <button type="button" class="btn-vote" onclick="votarTema(<%= tema.id %>, this)">👍 Votar</button>
+                    
                     <span class="vote-count" id="votos-<%= tema.id %>">
                         <%= tema.votos %>
                     </span>

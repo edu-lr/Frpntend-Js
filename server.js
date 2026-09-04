@@ -11,11 +11,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware para variables locales por defecto
+app.use((req, res, next) => {
+    res.locals.titulo = 'Aprendizaje App';
+    next();
+});
+
 // Configurar layouts
 app.use(expressLayouts);           
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src/views'));
-app.set('layout', 'layouts/main'); // <-- layout por defecto
+app.set('layout', 'layouts/main'); 
 
 // Importar rutas
 const temaRoutes = require('./src/routes/temaRoutes');

@@ -5,9 +5,8 @@
     <p class="descripcion"><%= tema.descripcion %></p>
     
     <div class="vote-container">
-        <button class="btn-vote" onclick="votarTema(<%= tema.id %>, this)">
-            👍 Votar
-        </button>
+        <button type="button" class="btn-vote" onclick="votarTema(<%= tema.id %>, this)">👍 Votar</button>
+
         <span class="vote-count" id="votos-<%= tema.id %>">
             <%= tema.votos %>
         </span>
@@ -48,16 +47,15 @@
                         <span class="enlace-url"><%= enlace.url %></span>
                     </div>
                     <div class="enlace-vote">
-                        <button class="btn-vote" onclick="votarEnlace(<%= tema.id %>, <%= enlace.id %>, this)">
-                            👍 Votar
-                        </button>
+                        <button type="button" class="btn-vote-enlace" onclick="votarEnlace(<%= tema.id %>, <%= enlace.id %>, this)">👍 Votar</button>
+
                         <span class="vote-count" id="votos-enlace-<%= enlace.id %>">
                             <%= enlace.votos %>
                         </span>
                     </div>
                     <div class="enlace-actions">
-                        <button class="btn btn-secondary btn-sm" onclick="editarEnlaceForm(<%= tema.id %>, <%= enlace.id %>)">Editar</button>
-                        <button class="btn btn-danger btn-sm" onclick="eliminarEnlace(<%= tema.id %>, <%= enlace.id %>)">Eliminar</button>
+                        <button type="button" class="btn-editar-enlace" onclick="editarEnlaceForm(<%= tema.id %>, <%= enlace.id %>)">Editar</button>
+                        <button type="button" class="btn-eliminar-enlace" onclick="eliminarEnlace(<%= tema.id %>, <%= enlace.id %>)">Eliminar</button>
                     </div>
                 </div>
             <% }) %>
